@@ -1,12 +1,11 @@
 import express from 'express'
+import { transactionRouter } from './routes/transactionsRouter';
 
-const app = express()
-const port = 3000
+const app = express();
+const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.use('/transactions', transactionRouter());
 
 app.listen(port, () => {
   console.log(`API running on PORT ${port}`)
-})
+});
