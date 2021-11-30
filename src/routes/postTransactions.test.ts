@@ -1,5 +1,6 @@
 import { postTransactions } from './postTransactions';
 import { badRequest, accepted } from '../utils/httpResponses';
+import { recordTransaction } from '../data/recordTransaction';
 
 jest.mock('../utils/httpResponses');
 
@@ -27,5 +28,5 @@ test('bad Request', async () => {
   
     expect(badRequest).not.toHaveBeenCalled();
     expect(accepted).toHaveBeenCalledWith(res);
-    expect(saveTransaction).toHaveBeenCalledTimes(2);
+    expect(recordTransaction).toHaveBeenCalledTimes(2);
   })
